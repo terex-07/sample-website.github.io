@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Sarah Mitchell | Family Physician</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f8fb;
+    color:#333;
+}
+
+header{
+    background:#0d6efd;
+    color:white;
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    font-size:28px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+.hero{
+    padding:80px 10%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    max-width:600px;
+}
+
+.hero h2{
+    font-size:45px;
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    background:#0d6efd;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.hero img{
+    width:350px;
+    border-radius:15px;
+}
+
+section{
+    padding:70px 10%;
+}
+
+.section-title{
+    text-align:center;
+    color:#0d6efd;
+    margin-bottom:40px;
+    font-size:35px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#0d6efd;
+}
+
+.about{
+    background:white;
+    border-radius:10px;
+    padding:30px;
+    line-height:1.8;
+}
+
+.contact{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+}
+
+footer{
+    background:#0d6efd;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>Dr. Sarah Mitchell</h1>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h2>Your Health Comes First</h2>
+        <p>
+            Compassionate and personalized healthcare for individuals
+            and families. With over 15 years of experience, Dr. Sarah
+            Mitchell provides trusted medical care focused on prevention,
+            wellness, and long-term health.
+        </p>
+
+        <a href="#contact" class="btn">Book Appointment</a>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600" alt="Doctor">
+</section>
+
+<section id="about">
+    <h2 class="section-title">About Doctor</h2>
+
+    <div class="about">
+        Dr. Sarah Mitchell is a board-certified family physician dedicated
+        to providing comprehensive healthcare services. She specializes in
+        preventive medicine, chronic disease management, annual health
+        checkups, and patient education. Her mission is to help patients
+        achieve healthier lives through evidence-based medical care.
+    </div>
+</section>
+
+<section id="services">
+    <h2 class="section-title">Medical Services</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>General Checkups</h3>
+            <p>Routine health assessments and preventive care.</p>
+        </div>
+
+        <div class="card">
+            <h3>Family Medicine</h3>
+            <p>Comprehensive healthcare for all age groups.</p>
+        </div>
+
+        <div class="card">
+            <h3>Vaccinations</h3>
+            <p>Immunizations and preventive treatments.</p>
+        </div>
+
+        <div class="card">
+            <h3>Health Screening</h3>
+            <p>Early detection and risk assessment programs.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Contact & Appointment</h2>
+
+    <div class="contact">
+        <h3>Dr. Sarah Mitchell Clinic</h3>
+        <br>
+        <p>📍 245 Wellness Avenue, New York</p>
+        <p>📞 +1 (555) 123-4567</p>
+        <p>✉️ appointments@drsarahmitchell.com</p>
+        <br>
+        <a href="#" class="btn">Schedule Appointment</a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Dr. Sarah Mitchell. All Rights Reserved.
+</footer>
+
+</body>
+</html>
