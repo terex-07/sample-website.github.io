@@ -2,16 +2,19 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Rahil Allaudin | Gold House Captain</title>
 
 <style>
 
-/* =========================
-   BASIC SETTINGS
-========================= */
+/* =====================================================
+   RESET
+===================================================== */
 
 * {
     margin: 0;
@@ -24,701 +27,1144 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f7f5ef;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f7f4ec;
     color: #292929;
-    line-height: 1.6;
     overflow-x: hidden;
 }
 
 
-/* =========================
-   PAGE LOADING ANIMATION
-========================= */
+/* =====================================================
+   GOLD VARIABLES
+===================================================== */
 
-body {
-    animation: pageLoad 1s ease;
-}
-
-@keyframes pageLoad {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+:root {
+    --gold: #d4af37;
+    --dark-gold: #9c7200;
+    --deep-gold: #755300;
+    --cream: #f7f4ec;
+    --white: #ffffff;
+    --dark: #171717;
 }
 
 
-/* =========================
-   HEADER
-========================= */
+/* =====================================================
+   LOADING SCREEN
+===================================================== */
 
-header {
-    position: relative;
-    overflow: hidden;
+.loader {
+    position: fixed;
+    inset: 0;
 
-    background: linear-gradient(
-        135deg,
-        #8f6500,
+    background:
+        radial-gradient(circle at center,
         #d4af37,
-        #9c7205
-    );
+        #8b6500 70%,
+        #171717);
 
-    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    animation: loaderOut 1.2s ease 1.4s forwards;
+}
+
+.loader-content {
     text-align: center;
-    padding: 45px 20px;
+    color: white;
+
+    animation: loaderIn 1s ease;
 }
 
-
-/* Moving shine effect */
-
-header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 60%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.25),
-        transparent
-    );
-
-    transform: skewX(-25deg);
-
-    animation: shine 5s infinite;
-}
-
-@keyframes shine {
-
-    0% {
-        left: -100%;
-    }
-
-    50% {
-        left: 140%;
-    }
-
-    100% {
-        left: 140%;
-    }
-
-}
-
-
-.school-logo {
-    position: relative;
-
-    width: 115px;
-    height: 115px;
+.loader-logo {
+    width: 90px;
+    height: 90px;
 
     object-fit: contain;
 
     background: white;
     padding: 8px;
 
-    border-radius: 15px;
+    border-radius: 18px;
 
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 
-    box-shadow:
-        0 5px 20px rgba(0,0,0,0.25);
-
-    animation: logoAppear 1.2s ease-out;
+    animation: logoPulse 1.2s infinite alternate;
 }
 
-@keyframes logoAppear {
-
-    0% {
-        opacity: 0;
-        transform: scale(0.5) rotate(-15deg);
-    }
-
-    70% {
-        transform: scale(1.08) rotate(3deg);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1) rotate(0);
-    }
-
+.loader-content h2 {
+    letter-spacing: 2px;
 }
 
-
-header h1 {
-
-    position: relative;
-
-    font-size: 38px;
-    letter-spacing: 1px;
-
-    animation: titleDown 1s ease-out;
-
-}
-
-@keyframes titleDown {
-
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-header p {
-
-    position: relative;
-
-    font-size: 18px;
-    margin-top: 5px;
-
-    animation: titleUp 1s ease-out 0.2s both;
-
-}
-
-@keyframes titleUp {
-
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
+.loader-line {
+    width: 180px;
+    height: 3px;
 
     background: white;
 
-    text-align: center;
+    margin: 15px auto;
 
-    padding: 70px 20px;
+    transform-origin: left;
 
+    animation: loadingLine 1.2s ease;
 }
 
-
-.profile-photo {
-
-    width: 270px;
-    height: 270px;
-
-    object-fit: cover;
-
-    border-radius: 50%;
-
-    border: 7px solid #d4af37;
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,0.20);
-
-    animation:
-        profileAppear 1.3s ease-out,
-        floating 5s ease-in-out 1.5s infinite;
-
-}
-
-
-@keyframes profileAppear {
-
-    0% {
-
-        opacity: 0;
-
-        transform:
-            scale(0.6)
-            rotate(-8deg);
-
-    }
-
-    70% {
-
-        transform:
-            scale(1.05)
-            rotate(2deg);
-
-    }
-
-    100% {
-
-        opacity: 1;
-
-        transform:
-            scale(1)
-            rotate(0);
-
-    }
-
-}
-
-
-@keyframes floating {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-}
-
-
-.hero h2 {
-
-    margin-top: 25px;
-
-    font-size: 42px;
-
-    color: #a47700;
-
-    animation:
-        heroText 1s ease-out 0.4s both;
-
-}
-
-
-.hero h3 {
-
-    font-size: 22px;
-
-    color: #555;
-
-    margin-top: 5px;
-
-    animation:
-        heroText 1s ease-out 0.6s both;
-
-}
-
-
-.former {
-
-    font-size: 17px;
-
-    font-weight: bold;
-
-    margin-top: 5px;
-
-    color: #333;
-
-    animation:
-        heroText 1s ease-out 0.8s both;
-
-}
-
-
-@keyframes heroText {
+@keyframes loaderIn {
 
     from {
-
         opacity: 0;
-
-        transform: translateY(25px);
-
+        transform: scale(.8);
     }
 
     to {
-
         opacity: 1;
+        transform: scale(1);
+    }
+}
 
-        transform: translateY(0);
+@keyframes logoPulse {
 
+    from {
+        transform: scale(.95);
     }
 
+    to {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes loadingLine {
+
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes loaderOut {
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 
-/* =========================
-   GOLD LINE
-========================= */
+/* =====================================================
+   HEADER
+===================================================== */
 
-.gold-line {
+header {
+    position: relative;
 
-    width: 100px;
+    min-height: 90vh;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #765200,
+            #d4af37,
+            #9b7100,
+            #5c4100
+        );
+
+    background-size: 300% 300%;
+
+    animation: goldMove 10s ease infinite;
+}
+
+@keyframes goldMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* =====================================================
+   GOLD PARTICLES
+===================================================== */
+
+.particle {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    background: rgba(255,255,255,.7);
+
+    border-radius: 50%;
+
+    animation: floatParticle linear infinite;
+}
+
+.p1 {
+    left: 10%;
+    bottom: -20px;
+    animation-duration: 8s;
+}
+
+.p2 {
+    left: 25%;
+    bottom: -20px;
+    animation-duration: 11s;
+    animation-delay: 2s;
+}
+
+.p3 {
+    left: 45%;
+    bottom: -20px;
+    animation-duration: 9s;
+    animation-delay: 1s;
+}
+
+.p4 {
+    left: 70%;
+    bottom: -20px;
+    animation-duration: 12s;
+    animation-delay: 3s;
+}
+
+.p5 {
+    left: 90%;
+    bottom: -20px;
+    animation-duration: 10s;
+    animation-delay: 1s;
+}
+
+@keyframes floatParticle {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(.5);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-100vh)
+            scale(1.5);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   HEADER CONTENT
+===================================================== */
+
+.header-content {
+    position: relative;
+    z-index: 2;
+
+    padding: 30px;
+}
+
+.school-logo {
+    width: 125px;
+    height: 125px;
+
+    object-fit: contain;
+
+    background: white;
+
+    padding: 8px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.35);
+
+    animation:
+        logoEntrance 1.3s ease;
+}
+
+@keyframes logoEntrance {
+
+    from {
+        opacity: 0;
+        transform:
+            scale(.4)
+            rotate(-20deg);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+header h1 {
+
+    font-size: clamp(32px, 6vw, 62px);
+
+    margin-top: 25px;
+
+    letter-spacing: 2px;
+
+    animation:
+        headingEntrance 1.2s ease .2s both;
+}
+
+header h2 {
+
+    font-size: clamp(20px, 3vw, 30px);
+
+    margin-top: 8px;
+
+    font-weight: 400;
+
+    animation:
+        headingEntrance 1.2s ease .45s both;
+}
+
+.header-line {
+
+    width: 120px;
     height: 4px;
 
-    background: #d4af37;
+    background: white;
 
     margin: 25px auto;
 
     border-radius: 10px;
 
-    animation: lineGrow 1s ease-out;
-
+    animation:
+        lineEntrance 1s ease .7s both;
 }
 
+.header-content p {
 
-@keyframes lineGrow {
+    font-size: 18px;
+
+    letter-spacing: 1px;
+
+    animation:
+        headingEntrance 1.2s ease .8s both;
+}
+
+@keyframes headingEntrance {
 
     from {
-        width: 0;
         opacity: 0;
+        transform: translateY(35px);
     }
 
     to {
-        width: 100px;
         opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineEntrance {
+
+    from {
+        width: 0;
     }
 
+    to {
+        width: 120px;
+    }
 }
 
 
-/* =========================
+/* =====================================================
+   SCROLL INDICATOR
+===================================================== */
+
+.scroll-down {
+
+    position: absolute;
+
+    bottom: 25px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 25px;
+
+    animation:
+        scrollBounce 1.5s infinite;
+}
+
+@keyframes scrollBounce {
+
+    0%, 100% {
+        transform:
+            translate(-50%, 0);
+    }
+
+    50% {
+        transform:
+            translate(-50%, 10px);
+    }
+}
+
+
+/* =====================================================
+   HERO PROFILE
+===================================================== */
+
+.hero {
+
+    position: relative;
+
+    background: white;
+
+    text-align: center;
+
+    padding: 90px 20px;
+
+    overflow: hidden;
+}
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.18),
+            transparent 70%
+        );
+
+    top: -200px;
+    left: -200px;
+}
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.12),
+            transparent 70%
+        );
+
+    bottom: -200px;
+    right: -150px;
+}
+
+.profile-wrapper {
+
+    position: relative;
+
+    display: inline-block;
+
+    z-index: 2;
+}
+
+.profile-wrapper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -15px;
+
+    border: 2px solid var(--gold);
+
+    border-radius: 50%;
+
+    animation:
+        rotateRing 10s linear infinite;
+}
+
+.profile-wrapper::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -25px;
+
+    border: 1px dashed
+        rgba(212,175,55,.5);
+
+    border-radius: 50%;
+
+    animation:
+        rotateRingReverse 15s linear infinite;
+}
+
+@keyframes rotateRing {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateRingReverse {
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.profile-photo {
+
+    position: relative;
+
+    width: 280px;
+    height: 280px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 7px solid white;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.25);
+
+    animation:
+        profileAppear 1.5s ease;
+}
+
+@keyframes profileAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            scale(.5)
+            translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+.hero h2 {
+
+    position: relative;
+
+    margin-top: 45px;
+
+    font-size: clamp(35px, 5vw, 52px);
+
+    color: var(--dark-gold);
+
+    animation:
+        textReveal 1s ease .4s both;
+}
+
+.hero h3 {
+
+    font-size: 25px;
+
+    color: #555;
+
+    animation:
+        textReveal 1s ease .6s both;
+}
+
+.former {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    margin-top: 5px;
+
+    animation:
+        textReveal 1s ease .8s both;
+}
+
+@keyframes textReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   GOLD DIVIDER
+===================================================== */
+
+.gold-divider {
+
+    width: 100px;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+
+    margin: 25px auto;
+}
+
+
+/* =====================================================
    QUOTE
-========================= */
+===================================================== */
 
 .quote {
 
-    max-width: 800px;
+    max-width: 850px;
 
-    margin: 25px auto 0;
+    margin: 30px auto 0;
 
-    font-size: 20px;
+    font-size: 21px;
 
     font-style: italic;
 
     color: #555;
 
+    padding: 20px;
+
     animation:
-        quoteAppear 1.2s ease-out 1s both;
-
+        quoteAppear 1.2s ease 1s both;
 }
-
 
 @keyframes quoteAppear {
 
     from {
-
         opacity: 0;
-
-        transform: scale(0.95);
-
+        transform: scale(.92);
     }
 
     to {
-
         opacity: 1;
-
         transform: scale(1);
-
     }
-
 }
 
 
-/* =========================
+/* =====================================================
    SECTIONS
-========================= */
+===================================================== */
 
 .section {
 
-    max-width: 1050px;
+    max-width: 1100px;
 
     margin: auto;
 
-    padding: 70px 25px;
-
+    padding: 90px 25px;
 }
 
-
-.section h2 {
+.section-title {
 
     text-align: center;
 
-    color: #a47700;
+    color: var(--dark-gold);
 
-    font-size: 30px;
+    font-size: 34px;
 
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
 
+.section-subtitle {
+
+    text-align: center;
+
+    color: #777;
+
+    margin-bottom: 35px;
 }
 
 
-.about-text {
+/* =====================================================
+   ABOUT CARD
+===================================================== */
 
-    background: white;
+.about-card {
 
-    padding: 35px;
+    background:
+        linear-gradient(
+            135deg,
+            white,
+            #fffdf6
+        );
 
-    border-radius: 15px;
+    padding: 45px;
+
+    border-radius: 20px;
 
     box-shadow:
-        0 5px 20px rgba(0,0,0,0.08);
+        0 10px 35px rgba(0,0,0,.08);
+
+    border-left: 6px solid var(--gold);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform .5s ease,
+        box-shadow .5s ease;
+}
+
+.about-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(212,175,55,.08);
+
+    right: -80px;
+    top: -80px;
+}
+
+.about-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.14);
+}
+
+.about-card p {
+
+    position: relative;
+
+    z-index: 1;
 
     font-size: 17px;
 
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-
+    margin-bottom: 20px;
 }
 
 
-.about-text:hover {
-
-    transform: translateY(-6px);
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,0.14);
-
-}
-
-
-/* =========================
+/* =====================================================
    LEADERSHIP CARDS
-========================= */
+===================================================== */
 
 .cards {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 25px;
-
-    flex-wrap: wrap;
-
-    margin-top: 30px;
-
-}
-
-
-.card {
-
-    background: white;
-
-    width: 280px;
-
-    padding: 30px 20px;
-
-    text-align: center;
-
-    border-radius: 15px;
-
-    border-top: 5px solid #d4af37;
-
-    box-shadow:
-        0 5px 20px rgba(0,0,0,0.08);
-
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-
-}
-
-
-.card:hover {
-
-    transform:
-        translateY(-12px)
-        scale(1.03);
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,0.18);
-
-}
-
-
-.card h3 {
-
-    color: #a47700;
-
-    margin-bottom: 10px;
-
-}
-
-
-/* =========================
-   GALLERY
-========================= */
-
-.gallery {
-
-    background: white;
-
-    padding: 70px 25px;
-
-    text-align: center;
-
-}
-
-
-.gallery h2 {
-
-    color: #a47700;
-
-    font-size: 30px;
-
-}
-
-
-.photos {
-
-    max-width: 1100px;
-
-    margin: 30px auto 0;
 
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(250px, 1fr));
+        repeat(3, 1fr);
 
     gap: 25px;
+}
 
+.card {
+
+    position: relative;
+
+    background: white;
+
+    padding: 40px 25px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.08);
+
+    overflow: hidden;
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        box-shadow .5s ease;
+}
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b6500,
+            #d4af37,
+            #8b6500
+        );
+}
+
+.card:hover {
+
+    transform:
+        translateY(-15px)
+        rotateX(3deg);
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.16);
+}
+
+.card-icon {
+
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #9c7200
+        );
+
+    color: white;
+
+    font-size: 28px;
+
+    transition:
+        transform .5s ease;
+}
+
+.card:hover .card-icon {
+
+    transform:
+        rotateY(360deg);
+}
+
+.card h3 {
+
+    color: var(--dark-gold);
+
+    font-size: 22px;
+
+    margin-bottom: 12px;
+}
+
+.card p {
+
+    color: #555;
 }
 
 
-.photos img {
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery {
+
+    background:
+        linear-gradient(
+            135deg,
+            #191919,
+            #292929
+        );
+
+    color: white;
+
+    padding: 90px 25px;
+
+    text-align: center;
+}
+
+.gallery h2 {
+
+    color: var(--gold);
+
+    font-size: 35px;
+}
+
+.gallery-subtitle {
+
+    color: #ccc;
+
+    margin-top: 5px;
+}
+
+.photos {
+
+    max-width: 1150px;
+
+    margin: 45px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.photo-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    height: 400px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.4);
+}
+
+.photo-card img {
 
     width: 100%;
-
-    height: 350px;
+    height: 100%;
 
     object-fit: cover;
 
-    border-radius: 15px;
-
-    box-shadow:
-        0 6px 20px rgba(0,0,0,0.18);
-
     transition:
-        transform 0.5s ease,
-        box-shadow 0.5s ease;
-
+        transform .8s cubic-bezier(.2,.8,.2,1),
+        filter .5s ease;
 }
 
+.photo-card::after {
 
-.photos img:hover {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.55),
+            transparent 50%
+        );
+
+    opacity: 0;
+
+    transition: opacity .5s ease;
+}
+
+.photo-card:hover img {
 
     transform:
-        translateY(-10px)
-        scale(1.03);
+        scale(1.12);
 
-    box-shadow:
-        0 18px 35px rgba(0,0,0,0.25);
+    filter:
+        brightness(1.05);
+}
 
+.photo-card:hover::after {
+
+    opacity: 1;
 }
 
 
-/* =========================
+/* =====================================================
+   FINAL MESSAGE
+===================================================== */
+
+.final-section {
+
+    text-align: center;
+
+    background: #fff;
+
+    padding: 90px 20px;
+}
+
+.final-section h2 {
+
+    font-size: 35px;
+
+    color: var(--dark-gold);
+}
+
+.final-message {
+
+    max-width: 750px;
+
+    margin: 20px auto;
+
+    font-size: 20px;
+
+    color: #555;
+}
+
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer {
 
-    background: #222;
+    background: #111;
 
     color: white;
 
     text-align: center;
 
-    padding: 35px 20px;
-
+    padding: 45px 20px;
 }
-
 
 footer h2 {
 
-    color: #d4af37;
+    color: var(--gold);
 
-    margin-bottom: 8px;
-
+    margin-bottom: 10px;
 }
-
 
 footer p {
 
-    color: #ddd;
+    color: #bbb;
 
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .cards {
+
+        grid-template-columns: 1fr;
+    }
+
+    .photos {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
 
 @media (max-width: 600px) {
 
-    header h1 {
+    header {
 
-        font-size: 28px;
-
+        min-height: 80vh;
     }
 
+    .school-logo {
 
-    .hero h2 {
-
-        font-size: 32px;
-
+        width: 100px;
+        height: 100px;
     }
-
 
     .profile-photo {
 
         width: 220px;
-
         height: 220px;
-
     }
 
+    .about-card {
 
-    .about-text {
-
-        padding: 25px;
-
+        padding: 28px;
     }
 
+    .photos {
 
-    .photos img {
-
-        height: 320px;
-
+        grid-template-columns: 1fr;
     }
 
+    .photo-card {
+
+        height: 400px;
+    }
+
+    .quote {
+
+        font-size: 18px;
+    }
 }
 
 
-/* =========================
-   REDUCED MOTION
-========================= */
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
-    * {
+    *,
+    *::before,
+    *::after {
 
-        animation-duration: 0.01ms !important;
+        animation-duration: .01ms !important;
 
         animation-iteration-count: 1 !important;
 
-        transition-duration: 0.01ms !important;
+        transition-duration: .01ms !important;
 
         scroll-behavior: auto !important;
-
     }
-
 }
 
 </style>
@@ -729,41 +1175,98 @@ footer p {
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
+     LOADING SCREEN
+===================================================== -->
+
+<div class="loader">
+
+    <div class="loader-content">
+
+        <img
+            src="sjps.jpg"
+            class="loader-logo"
+            alt="School Logo"
+        >
+
+        <h2>
+            GOLD HOUSE
+        </h2>
+
+        <div class="loader-line"></div>
+
+        <p>
+            Leadership • Unity • Excellence
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- PARTICLES -->
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+<div class="particle p5"></div>
+
+
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header>
 
-    <img
-        src="sjps.jpg"
-        alt="Saifee Golden Jubilee School Logo"
-        class="school-logo"
-    >
+    <div class="header-content">
 
-    <h1>
-        Saifee Golden Jubilee School
-    </h1>
+        <img
+            src="sjps.jpg"
+            alt="Saifee Golden Jubilee School"
+            class="school-logo"
+        >
 
-    <p>
-        Gold House Leadership
-    </p>
+        <h1>
+            Saifee Golden Jubilee School
+        </h1>
+
+        <h2>
+            Gold House Leadership
+        </h2>
+
+        <div class="header-line"></div>
+
+        <p>
+            A journey of responsibility, teamwork and excellence
+        </p>
+
+    </div>
+
+
+    <div class="scroll-down">
+        ↓
+    </div>
 
 </header>
 
 
-
-<!-- =========================
+<!-- =====================================================
      PROFILE
-========================= -->
+===================================================== -->
 
 <section class="hero">
 
-    <img
-        src="rahil 2.jpg"
-        alt="Rahil Allaudin"
-        class="profile-photo"
-    >
+    <div class="profile-wrapper">
+
+        <img
+            src="rahil%202.jpg"
+            alt="Rahil Allaudin"
+            class="profile-photo"
+        >
+
+    </div>
+
 
     <h2>
         Rahil Allaudin
@@ -777,31 +1280,35 @@ footer p {
         Former Vice Captain of Gold House
     </p>
 
-    <div class="gold-line"></div>
+
+    <div class="gold-divider"></div>
+
 
     <p class="quote">
-        "Leadership is not about standing above others;
-        it is about standing with them and bringing out
-        the best in everyone."
+        "Leadership is not about being in charge.
+        It is about inspiring others to achieve
+        excellence together."
     </p>
 
 </section>
 
 
-
-<!-- =========================
+<!-- =====================================================
      ABOUT
-========================= -->
+===================================================== -->
 
 <section class="section">
 
-    <h2>
+    <h2 class="section-title">
         About Rahil
     </h2>
 
-    <div class="gold-line"></div>
+    <p class="section-subtitle">
+        A journey from Vice Captain to Gold House Captain
+    </p>
 
-    <div class="about-text">
+
+    <div class="about-card">
 
         <p>
             Rahil Allaudin has proudly served the Gold House
@@ -811,23 +1318,19 @@ footer p {
             the Gold House Captain.
         </p>
 
-        <br>
-
         <p>
-            His journey represents the values of teamwork,
-            commitment, respect and perseverance. As a student
-            leader, Rahil aims to encourage his fellow house
-            members to participate, support one another and
-            strive for excellence.
+            His journey reflects the values of teamwork,
+            commitment, respect and perseverance. Through his
+            involvement in school activities and house events,
+            he strives to encourage students to participate,
+            cooperate and give their best.
         </p>
 
-        <br>
-
         <p>
-            The role of a House Captain is more than a title.
-            It is a responsibility to lead by example, represent
-            the house with pride and contribute positively to
-            school life.
+            Being a House Captain is not simply a position.
+            It is a responsibility to lead by example,
+            represent the house with pride and help create
+            an environment where everyone can contribute.
         </p>
 
     </div>
@@ -835,30 +1338,37 @@ footer p {
 </section>
 
 
-
-<!-- =========================
+<!-- =====================================================
      LEADERSHIP
-========================= -->
+===================================================== -->
 
 <section class="section">
 
-    <h2>
+    <h2 class="section-title">
         Leadership Journey
     </h2>
 
-    <div class="gold-line"></div>
+    <p class="section-subtitle">
+        Experience • Responsibility • Teamwork
+    </p>
+
 
     <div class="cards">
 
+
         <div class="card">
 
+            <div class="card-icon">
+                ★
+            </div>
+
             <h3>
-                Former Vice Captain
+                Vice Captain
             </h3>
 
             <p>
                 Served as Vice Captain of Gold House,
-                developing experience in teamwork,
+                gaining experience in teamwork,
                 coordination and student leadership.
             </p>
 
@@ -867,14 +1377,18 @@ footer p {
 
         <div class="card">
 
+            <div class="card-icon">
+                ♛
+            </div>
+
             <h3>
                 Gold House Captain
             </h3>
 
             <p>
-                Currently serving as Captain of Gold House,
-                representing the house with responsibility
-                and pride.
+                Currently serving as Gold House Captain,
+                representing the house with responsibility,
+                discipline and pride.
             </p>
 
         </div>
@@ -882,71 +1396,128 @@ footer p {
 
         <div class="card">
 
+            <div class="card-icon">
+                ◆
+            </div>
+
             <h3>
-                Leadership Values
+                Core Values
             </h3>
 
             <p>
-                Discipline, teamwork, respect,
-                responsibility and excellence.
+                Leadership, teamwork, respect,
+                responsibility, determination
+                and excellence.
             </p>
 
         </div>
 
+
     </div>
 
 </section>
 
 
-
-<!-- =========================
+<!-- =====================================================
      GALLERY
-========================= -->
+===================================================== -->
 
 <section class="gallery">
 
     <h2>
-        Photo Gallery
+        Gold House Memories
     </h2>
 
-    <div class="gold-line"></div>
+    <p class="gallery-subtitle">
+        Moments from the journey
+    </p>
+
+    <div class="gold-divider"></div>
+
 
     <div class="photos">
 
-        <img
-            src="rahil 1.jpg"
-            alt="Rahil Allaudin"
-        >
 
-        <img
-            src="rahil 2.jpg"
-            alt="Rahil Allaudin"
-        >
+        <div class="photo-card">
 
-        <img
-            src="rahil 3.jpg"
-            alt="Rahil Allaudin"
-        >
+            <img
+                src="rahil%201.jpg"
+                alt="Rahil Allaudin"
+            >
 
-        <img
-            src="rahil 4.jpg"
-            alt="Rahil Allaudin"
-        >
+        </div>
+
+
+        <div class="photo-card">
+
+            <img
+                src="rahil%202.jpg"
+                alt="Rahil Allaudin"
+            >
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img
+                src="rahil%203.jpg"
+                alt="Rahil Allaudin"
+            >
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img
+                src="rahil%204.jpg"
+                alt="Rahil Allaudin"
+            >
+
+        </div>
+
 
     </div>
 
 </section>
 
 
+<!-- =====================================================
+     FINAL MESSAGE
+===================================================== -->
 
-<!-- =========================
+<section class="final-section">
+
+    <h2>
+        The Spirit of Gold House
+    </h2>
+
+    <div class="gold-divider"></div>
+
+    <p class="final-message">
+
+        United by purpose, driven by teamwork,
+        and committed to excellence.
+
+        <br><br>
+
+        Every student has a role to play.
+        Every effort makes a difference.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
     <h2>
-        Gold House
+        GOLD HOUSE
     </h2>
 
     <p>
@@ -956,8 +1527,7 @@ footer p {
     <br>
 
     <p>
-        "Together in Unity • Strong in Leadership •
-        Committed to Excellence"
+        Leadership • Unity • Excellence
     </p>
 
 </footer>
