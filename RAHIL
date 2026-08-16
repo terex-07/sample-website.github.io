@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rahil Allaudin | Gold House Captain</title>
+
+<style>
+
+/* =========================
+   BASIC SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f5ef;
+    color: #292929;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   PAGE LOADING ANIMATION
+========================= */
+
+body {
+    animation: pageLoad 1s ease;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        #8f6500,
+        #d4af37,
+        #9c7205
+    );
+
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+
+/* Moving shine effect */
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.25),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+
+    animation: shine 5s infinite;
+}
+
+@keyframes shine {
+
+    0% {
+        left: -100%;
+    }
+
+    50% {
+        left: 140%;
+    }
+
+    100% {
+        left: 140%;
+    }
+
+}
+
+
+.school-logo {
+    position: relative;
+
+    width: 115px;
+    height: 115px;
+
+    object-fit: contain;
+
+    background: white;
+    padding: 8px;
+
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.25);
+
+    animation: logoAppear 1.2s ease-out;
+}
+
+@keyframes logoAppear {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-15deg);
+    }
+
+    70% {
+        transform: scale(1.08) rotate(3deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+
+}
+
+
+header h1 {
+
+    position: relative;
+
+    font-size: 38px;
+    letter-spacing: 1px;
+
+    animation: titleDown 1s ease-out;
+
+}
+
+@keyframes titleDown {
+
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+header p {
+
+    position: relative;
+
+    font-size: 18px;
+    margin-top: 5px;
+
+    animation: titleUp 1s ease-out 0.2s both;
+
+}
+
+@keyframes titleUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    background: white;
+
+    text-align: center;
+
+    padding: 70px 20px;
+
+}
+
+
+.profile-photo {
+
+    width: 270px;
+    height: 270px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 7px solid #d4af37;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.20);
+
+    animation:
+        profileAppear 1.3s ease-out,
+        floating 5s ease-in-out 1.5s infinite;
+
+}
+
+
+@keyframes profileAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.6)
+            rotate(-8deg);
+
+    }
+
+    70% {
+
+        transform:
+            scale(1.05)
+            rotate(2deg);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0);
+
+    }
+
+}
+
+
+@keyframes floating {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+.hero h2 {
+
+    margin-top: 25px;
+
+    font-size: 42px;
+
+    color: #a47700;
+
+    animation:
+        heroText 1s ease-out 0.4s both;
+
+}
+
+
+.hero h3 {
+
+    font-size: 22px;
+
+    color: #555;
+
+    margin-top: 5px;
+
+    animation:
+        heroText 1s ease-out 0.6s both;
+
+}
+
+
+.former {
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    margin-top: 5px;
+
+    color: #333;
+
+    animation:
+        heroText 1s ease-out 0.8s both;
+
+}
+
+
+@keyframes heroText {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================
+   GOLD LINE
+========================= */
+
+.gold-line {
+
+    width: 100px;
+
+    height: 4px;
+
+    background: #d4af37;
+
+    margin: 25px auto;
+
+    border-radius: 10px;
+
+    animation: lineGrow 1s ease-out;
+
+}
+
+
+@keyframes lineGrow {
+
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 100px;
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote {
+
+    max-width: 800px;
+
+    margin: 25px auto 0;
+
+    font-size: 20px;
+
+    font-style: italic;
+
+    color: #555;
+
+    animation:
+        quoteAppear 1.2s ease-out 1s both;
+
+}
+
+
+@keyframes quoteAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    padding: 70px 25px;
+
+}
+
+
+.section h2 {
+
+    text-align: center;
+
+    color: #a47700;
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.about-text {
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.08);
+
+    font-size: 17px;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+}
+
+
+.about-text:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.14);
+
+}
+
+
+/* =========================
+   LEADERSHIP CARDS
+========================= */
+
+.cards {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+
+}
+
+
+.card {
+
+    background: white;
+
+    width: 280px;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border-radius: 15px;
+
+    border-top: 5px solid #d4af37;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+}
+
+
+.card:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.18);
+
+}
+
+
+.card h3 {
+
+    color: #a47700;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+
+    background: white;
+
+    padding: 70px 25px;
+
+    text-align: center;
+
+}
+
+
+.gallery h2 {
+
+    color: #a47700;
+
+    font-size: 30px;
+
+}
+
+
+.photos {
+
+    max-width: 1100px;
+
+    margin: 30px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+
+}
+
+
+.photos img {
+
+    width: 100%;
+
+    height: 350px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,0.18);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+
+}
+
+
+.photos img:hover {
+
+    transform:
+        translateY(-10px)
+        scale(1.03);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,0.25);
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    background: #222;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+}
+
+
+footer h2 {
+
+    color: #d4af37;
+
+    margin-bottom: 8px;
+
+}
+
+
+footer p {
+
+    color: #ddd;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    header h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .hero h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .profile-photo {
+
+        width: 220px;
+
+        height: 220px;
+
+    }
+
+
+    .about-text {
+
+        padding: 25px;
+
+    }
+
+
+    .photos img {
+
+        height: 320px;
+
+    }
+
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <img
+        src="sjps.jpg"
+        alt="Saifee Golden Jubilee School Logo"
+        class="school-logo"
+    >
+
+    <h1>
+        Saifee Golden Jubilee School
+    </h1>
+
+    <p>
+        Gold House Leadership
+    </p>
+
+</header>
+
+
+
+<!-- =========================
+     PROFILE
+========================= -->
+
+<section class="hero">
+
+    <img
+        src="rahil 2.jpg"
+        alt="Rahil Allaudin"
+        class="profile-photo"
+    >
+
+    <h2>
+        Rahil Allaudin
+    </h2>
+
+    <h3>
+        Gold House Captain
+    </h3>
+
+    <p class="former">
+        Former Vice Captain of Gold House
+    </p>
+
+    <div class="gold-line"></div>
+
+    <p class="quote">
+        "Leadership is not about standing above others;
+        it is about standing with them and bringing out
+        the best in everyone."
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section">
+
+    <h2>
+        About Rahil
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <div class="about-text">
+
+        <p>
+            Rahil Allaudin has proudly served the Gold House
+            with dedication, discipline and responsibility.
+            Beginning his leadership journey as the Vice Captain,
+            he has now taken on the responsibility of serving as
+            the Gold House Captain.
+        </p>
+
+        <br>
+
+        <p>
+            His journey represents the values of teamwork,
+            commitment, respect and perseverance. As a student
+            leader, Rahil aims to encourage his fellow house
+            members to participate, support one another and
+            strive for excellence.
+        </p>
+
+        <br>
+
+        <p>
+            The role of a House Captain is more than a title.
+            It is a responsibility to lead by example, represent
+            the house with pride and contribute positively to
+            school life.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     LEADERSHIP
+========================= -->
+
+<section class="section">
+
+    <h2>
+        Leadership Journey
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>
+                Former Vice Captain
+            </h3>
+
+            <p>
+                Served as Vice Captain of Gold House,
+                developing experience in teamwork,
+                coordination and student leadership.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Gold House Captain
+            </h3>
+
+            <p>
+                Currently serving as Captain of Gold House,
+                representing the house with responsibility
+                and pride.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Leadership Values
+            </h3>
+
+            <p>
+                Discipline, teamwork, respect,
+                responsibility and excellence.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section class="gallery">
+
+    <h2>
+        Photo Gallery
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <div class="photos">
+
+        <img
+            src="rahil 1.jpg"
+            alt="Rahil Allaudin"
+        >
+
+        <img
+            src="rahil 2.jpg"
+            alt="Rahil Allaudin"
+        >
+
+        <img
+            src="rahil 3.jpg"
+            alt="Rahil Allaudin"
+        >
+
+        <img
+            src="rahil 4.jpg"
+            alt="Rahil Allaudin"
+        >
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h2>
+        Gold House
+    </h2>
+
+    <p>
+        Saifee Golden Jubilee School
+    </p>
+
+    <br>
+
+    <p>
+        "Together in Unity • Strong in Leadership •
+        Committed to Excellence"
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
